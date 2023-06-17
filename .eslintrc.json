@@ -1,3 +1,76 @@
 {
-  "extends": "next/core-web-vitals"
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"next/core-web-vitals",
+		"plugin:import/recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["prettier"],
+	"rules": {
+		"prettier/prettier": "error",
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"caughtErrorsIgnorePattern": "^_",
+				"destructuredArrayIgnorePattern": "^_",
+				"ignoreRestSiblings": true
+			}
+		],
+		"arrow-body-style": ["error", "as-needed"],
+		"react/self-closing-comp": ["error", { "component": true, "html": true }],
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				"prefer": "type-imports"
+			}
+		],
+		"import/no-namespace": "error",
+		"import/no-relative-parent-imports": "error",
+		"import/no-anonymous-default-export": [
+			"error",
+			{
+				"allowArray": true,
+				"allowArrowFunction": false,
+				"allowAnonymousClass": false,
+				"allowAnonymousFunction": false,
+				"allowCallExpression": true,
+				"allowLiteral": false,
+				"allowObject": true
+			}
+		],
+		"import/order": [
+			"error",
+			{
+				"newlines-between": "always",
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"parent",
+					"sibling",
+					"index",
+					"object",
+					"type"
+				],
+				"pathGroups": [
+					{
+						"pattern": "@/**/**",
+						"group": "parent",
+						"position": "before"
+					},
+					{
+						"pattern": "./**",
+						"group": "sibling",
+						"position": "after"
+					}
+				],
+
+				"alphabetize": { "order": "asc" },
+				"distinctGroup": true
+			}
+		]
+	}
 }
